@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gFront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8e8e8"/>
+      <stop offset="35%" stop-color="#c0c0c0"/>
+      <stop offset="70%" stop-color="#989898"/>
+      <stop offset="100%" stop-color="#b8b8b8"/>
+    </linearGradient>
+    <linearGradient id="gTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
+    </linearGradient>
+    <linearGradient id="gRight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#808080"/>
+      <stop offset="50%" stop-color="#606060"/>
+      <stop offset="100%" stop-color="#404040"/>
+    </linearGradient>
+    <linearGradient id="gTitle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="100%" stop-color="#252525"/>
+    </linearGradient>
+    <linearGradient id="gTermBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0c18"/>
+      <stop offset="100%" stop-color="#060610"/>
+    </linearGradient>
+
+    <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="4" height="2" fill="#000" fill-opacity="0.35"/>
+    </pattern>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#181830" stroke-width="0.5" opacity="0.6"/>
+    </pattern>
+
+    <g id="cube">
+      <polygon points="12,0 18,6 18,18 12,12" fill="url(#gRight)" stroke="#00e5ff" stroke-width="0.5" stroke-opacity="0.45"/>
+      <polygon points="0,0 12,0 18,6 6,6" fill="url(#gTop)" stroke="#00e5ff" stroke-width="0.5" stroke-opacity="0.45"/>
+      <rect x="0" y="0" width="12" height="12" fill="url(#gFront)" stroke="#00e5ff" stroke-width="0.7" stroke-opacity="0.65"/>
+    </g>
+  </defs>
+
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes perspective {
+      0%, 100% { transform: scale(1, 1); }
+      50% { transform: scale(0.18, 1); }
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 0.8; }
+    }
+    .spin { animation: spin 8s linear infinite; }
+    .persp { animation: perspective 8s ease-in-out infinite; }
+    .blink { animation: blink 1s step-end infinite; }
+    .fade1 { opacity: 0; animation: fadeIn 0.3s 1.2s forwards; }
+    .fade2 { opacity: 0; animation: fadeIn 0.3s 2.2s forwards; }
+    .fade3 { opacity: 0; animation: fadeIn 0.3s 3.2s forwards; }
+    .pd0  { animation: pulse 2s ease-in-out infinite; }
+    .pd1  { animation: pulse 2s ease-in-out 1s infinite; }
+    .pd05 { animation: pulse 2s ease-in-out 0.5s infinite; }
+    .pd15 { animation: pulse 2s ease-in-out 1.5s infinite; }
+  </style>
+
+  <rect width="800" height="500" fill="#0d1117"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+
+  <!-- Y2K corner brackets -->
+  <g stroke="#00e5ff" stroke-width="1.5" fill="none" opacity="0.12">
+    <polyline points="38,58 38,38 58,38"/>
+    <polyline points="762,58 762,38 742,38"/>
+    <polyline points="38,442 38,462 58,462"/>
+    <polyline points="762,442 762,462 742,462"/>
+  </g>
+
+  <!-- Terminal drop shadow -->
+  <rect x="57" y="23" width="660" height="440" rx="10" fill="#000" opacity="0.5"/>
+
+  <!-- Terminal frame -->
+  <rect x="50" y="15" width="660" height="440" rx="10" fill="#2a2a2a"/>
+
+  <!-- Terminal inner border -->
+  <rect x="53" y="18" width="654" height="434" rx="8" fill="#12121f"/>
+
+  <!-- Title bar -->
+  <path d="M53 18 L53 26 Q53 18 61 18 L699 18 Q707 18 707 26 L707 50 L53 50 Z" fill="url(#gTitle)"/>
+  <rect x="53" y="36" width="654" height="14" fill="url(#gTitle)"/>
+
+  <!-- Title bar buttons -->
+  <circle cx="69" cy="34" r="6" fill="#ff5f57"/>
+  <circle cx="87" cy="34" r="6" fill="#febc2e"/>
+  <circle cx="105" cy="34" r="6" fill="#28c840"/>
+
+  <!-- Title text -->
+  <text x="380" y="38" text-anchor="middle" font-family="'Courier New', Consolas, monospace" font-size="11" fill="#999">AS-Terminal — bash — 80×24</text>
+
+  <!-- Content area background -->
+  <rect x="56" y="51" width="648" height="398" fill="url(#gTermBg)"/>
+  <rect x="56" y="51" width="648" height="398" fill="url(#scanlines)"/>
+
+  <!-- Neofetch prompt -->
+  <text x="72" y="72" font-family="'Courier New', Consolas, monospace" font-size="11">
+    <tspan fill="#0f0">$ </tspan><tspan fill="#00e5ff">neofetch</tspan>
+  </text>
+
+  <!-- Logo rotation center -->
+  <g transform="translate(380, 240)">
+    <g class="spin">
+      <g class="persp">
+        <g transform="translate(-66, -42)">
+          <!-- === Letter A === -->
+          <use href="#cube" x="24" y="0"/>
+          <use href="#cube" x="12" y="12"/>
+          <use href="#cube" x="36" y="12"/>
+          <use href="#cube" x="0" y="24"/>
+          <use href="#cube" x="48" y="24"/>
+          <use href="#cube" x="0" y="36"/>
+          <use href="#cube" x="48" y="36"/>
+          <use href="#cube" x="0" y="48"/>
+          <use href="#cube" x="12" y="48"/>
+          <use href="#cube" x="24" y="48"/>
+          <use href="#cube" x="36" y="48"/>
+          <use href="#cube" x="48" y="48"/>
+          <use href="#cube" x="0" y="60"/>
+          <use href="#cube" x="48" y="60"/>
+          <use href="#cube" x="0" y="72"/>
+          <use href="#cube" x="48" y="72"/>
+
+          <!-- === Letter S === -->
+          <use href="#cube" x="84" y="0"/>
+          <use href="#cube" x="96" y="0"/>
+          <use href="#cube" x="108" y="0"/>
+          <use href="#cube" x="72" y="12"/>
+          <use href="#cube" x="120" y="12"/>
+          <use href="#cube" x="72" y="24"/>
+          <use href="#cube" x="84" y="36"/>
+          <use href="#cube" x="96" y="36"/>
+          <use href="#cube" x="108" y="36"/>
+          <use href="#cube" x="120" y="48"/>
+          <use href="#cube" x="72" y="60"/>
+          <use href="#cube" x="120" y="60"/>
+          <use href="#cube" x="84" y="72"/>
+          <use href="#cube" x="96" y="72"/>
+          <use href="#cube" x="108" y="72"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Status lines -->
+  <text x="72" y="390" font-family="'Courier New', Consolas, monospace" font-size="11" class="fade1">
+    <tspan fill="#0f0">$ </tspan><tspan fill="#ff00ff">cat</tspan><tspan fill="#aaa"> /etc/as-org</tspan>
+  </text>
+  <text x="72" y="408" font-family="'Courier New', Consolas, monospace" font-size="11" class="fade2">
+    <tspan fill="#888">  name: </tspan><tspan fill="#00e5ff">AS-Tofo</tspan><tspan fill="#888">.studio</tspan>
+  </text>
+  <text x="72" y="426" font-family="'Courier New', Consolas, monospace" font-size="11" class="fade3">
+    <tspan fill="#0f0">$ </tspan><tspan class="blink" fill="#0f0">█</tspan>
+  </text>
+
+  <!-- Corner glowing dots -->
+  <circle cx="80" cy="64" r="2" fill="#00e5ff" class="pd0" filter="url(#neon)"/>
+  <circle cx="720" cy="64" r="2" fill="#ff00ff" class="pd1" filter="url(#neon)"/>
+  <circle cx="80" cy="436" r="2" fill="#ff00ff" class="pd05" filter="url(#neon)"/>
+  <circle cx="720" cy="436" r="2" fill="#00e5ff" class="pd15" filter="url(#neon)"/>
+</svg>
