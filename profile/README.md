@@ -6,8 +6,8 @@
 
 # AS-Tofo Studio
 
-> 以兴趣为驱动、以热忱为底色，打造匠心独具的作品。
-
+> Touch Open, Fork Omniverse
+> 触启开源，   拓界无疆
 ---
 
 AS-Tofo Studio 由一群热爱技术的开发者共同创立。我们以兴趣为驱动、以热忱为底色，致力于打造匠心独具的作品。
